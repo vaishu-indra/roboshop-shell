@@ -13,3 +13,4 @@ cp ${script_location}/files/nginx roboshop.conf /etc/nginx/default.d/roboshop.co
 
 systemctl restart nginx
 
+
