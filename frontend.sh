@@ -7,6 +7,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Enable nginx\e[0m"
@@ -15,6 +16,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Start nginx\e[0m"
@@ -23,6 +25,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Remove nginx old content\e[0m"
@@ -31,6 +34,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Download frontend content\e[0m"
@@ -39,6 +43,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 cd /usr/share/nginx/html &>>${LOG}
@@ -49,6 +54,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Copy roboshop nginx config file\e[0m"
@@ -57,6 +63,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Restart nginx\e[0m"
@@ -65,5 +72,8 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
+
+
 
