@@ -19,7 +19,7 @@ else
 exit
 fi
 
-echo -e "\e[31m changing bindip\e[0m"
+echo -e "\e[31m change bindip\e[0m"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${LOG}
 if [ $? -eq 0 ]; then
   echo success
