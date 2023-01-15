@@ -8,7 +8,7 @@ print_head "Install mongodb"
 yum install mongodb-org -y &>>${LOG}
 status_check
 
-print_head "change bindip"
+print_head "update mongodb listen address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${LOG}
 status_check
 
