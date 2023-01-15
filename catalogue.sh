@@ -8,7 +8,7 @@ print_head "Install nodejs"
 yum install nodejs -y &>>${LOG}
 status_check
 
-print_head "35m add application user"
+print_head "add application user"
 id roboshop  &>>${LOG}
 if [ $? -ne 0 ] ;
  useradd roboshop &>>${LOG}
