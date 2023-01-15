@@ -6,7 +6,7 @@ status_check
 
 print_head "Enable nginx"
 systemctl enable nginx &>>${LOG}
-status-check
+status_check
 
 print_head "Start nginx"
 systemctl start nginx &>>${LOG}
