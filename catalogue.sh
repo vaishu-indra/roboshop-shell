@@ -101,7 +101,7 @@ else
   echo failure
 fi
 
-echo -e "\e[31m Installing mongo-client\e[0m"
+echo -e "\e[31m Installing mongodb-client\e[0m"
 yum install mongodb-org-shell -y &>>${LOG}
 if [ $? -eq 0 ]; then
   echo success
