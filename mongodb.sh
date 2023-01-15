@@ -7,6 +7,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m Install mongodb\e[0m"
@@ -15,6 +16,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m changing bindip\e[0m"
@@ -23,6 +25,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m enable mongodb\e[0m"
@@ -31,6 +34,7 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
 
 echo -e "\e[31m restart mongodb\e[0m"
@@ -39,4 +43,6 @@ if [ $? -eq 0 ]; then
   echo success
 else
   echo failure
+exit
 fi
+
