@@ -1,6 +1,6 @@
 source common.sh
 
-component=cart
+component=catalogue
 schema_load=false
 
 NODEJS
