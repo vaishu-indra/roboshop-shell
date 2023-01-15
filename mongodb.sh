@@ -33,7 +33,7 @@ else
   echo failure
 fi
 
-echo -e "\e[31m start mongodb\e[0m"
+echo -e "\e[31m restart mongodb\e[0m"
 systemctl restart mongod &>>${LOG}
 if [ $? -eq 0 ]; then
   echo success
