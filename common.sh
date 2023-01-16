@@ -92,6 +92,7 @@ LOAD_SCHEMA() {
 
     fi
 }
+
 NODEJS() {
   print_head "configuring nodejs repos"
   curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG}
