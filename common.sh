@@ -74,23 +74,23 @@ LOAD_SCHEMA() {
       print_head "load schema"
       mongo --host mongodb-dev.learndevopsb70.online </app/schema/${component}.js &>>${LOG}
       status_check
+
     fi
 
     if [ ${schema_type} == "mysql" ]; then
 
-        print_head "configuring mongo repo"
-        cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
-        status_check
+      print_head "Installing mysql-client"
+      yum install mysql -y &>>${LOG}
+      status_check
 
-        print_head "Installing mysql-client"
-        yum install mysql -y &>>${LOG}
-        status_check
-
-        print_head "load schema"
-        mysql -h mysql-dev.learndevopsb70.online -uroot -p${root_mysql_password} < /app/schema/shipping.sql  &>>${LOG}
-        status_check
+      print_head "load schema"
+      mysql -h mysql-dev.learndevopsb70.online -uroot -p${root_mysql_password} < /app/schema/shipping.sql  &>>${LOG}
+      status_check
 
     fi
+
+fi
+
 }
 
 NODEJS() {
