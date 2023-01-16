@@ -76,7 +76,7 @@ if [ ${schema_load} == "true" ]; then
   status_check
 
   print_head "load schema"
-  mongo --host mongodb-dev.learndevopsb70.online </app/schema/user.js &>>${LOG}
+  mongo --host mongodb-dev.learndevopsb70.online </app/schema/${component}.js &>>${LOG}
   status_check
 fi
 }
