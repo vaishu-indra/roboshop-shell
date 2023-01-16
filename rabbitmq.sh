@@ -2,7 +2,7 @@ source common.sh
 
 if [ -z "${roboshop_rabbitmq_password}" ]; then
   echo "variable root_mysql_password is missing"
-  exit
+  exit 1
 fi
 
 print_head "configuring erlang YUM repos"
