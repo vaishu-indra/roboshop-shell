@@ -6,7 +6,7 @@ if [ -z "${roboshop_rabbitmq_password}" ]; then
 fi
 
 print_head "configuring erlang YUM repos"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash &>>${LOG}
 status_check
 
 print_head "configuring RABBITMQ YUM Repos"
