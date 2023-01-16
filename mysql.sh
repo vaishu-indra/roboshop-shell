@@ -2,6 +2,7 @@ source common.sh
 
 if [ -z "${root_mysql_password}" ]; then
   echo "variable root_mysql_password is missing"
+fi
 
 print_head "disable mysQL Default module"
 dnf module disable mysql -y  &>>${LOG}
@@ -26,5 +27,7 @@ status_check
 print_head "reset default database password"
 mysql_secure_installation --set-root-pass ${root_mysql_password} &>>${LOG}
 status_check
+
+
 
 
