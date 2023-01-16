@@ -22,7 +22,7 @@ systemctl enable mysqld  &>>${LOG}
 status_check
 
 print_head "start mysqld"
-systemctl start mysqld &>>${LOG}
+systemctl restart mysqld &>>${LOG}
 status_check
 
 print_head "reset default database password"
