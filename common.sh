@@ -41,7 +41,8 @@ APP_PREREQ() {
 }
 
 systemD_setup() {
-  print_head "configuring ${component} service file"
+
+    print_head "configuring ${component} service file"
     cp ${script_location}/files/${component}.service /etc/systemd/system/${component}.service &>>${LOG}
     status_check
 
@@ -90,6 +91,14 @@ LOAD_SCHEMA() {
     fi
 
 fi
+
+}
+
+update_passwords(){
+
+  print_head "update passwords in service file"
+  sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/files/${component}.service &>>${LOG}
+  status_check
 
 }
 
@@ -150,11 +159,31 @@ PYTHON() {
       pip3.6 install -r requirements.txt &>>${LOG}
       status_check
 
-      print_head "update passwords in service file"
-      sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/files/${component}.service &>>${LOG}
-      status_check
+      update_passwords
 
       systemD_setup
 
       LOAD_SCHEMA
 }
+
+golang() {
+
+  print_head "install golang"
+  yum install golang -y &>>${LOG}
+  status_check
+
+  APP_PREREQ
+
+  print_head "download dependencies"
+  cd /app
+  go mod init dispatch &>>${LOG}
+  go get &>>${LOG}
+  go build &>>${LOG}
+  status_check
+
+  update_passwords
+
+  systemD_setup
+
+
+  }
